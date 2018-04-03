@@ -1,0 +1,45 @@
+#form {
+border: 1px solid black;
+margin-top: 0px;
+background-color: #FFFFFF;
+margin-left: 30%;
+margin-right: 30%;
+margin-bottom: 3%;
+}
+#submit {
+  margin: 3px;
+}
+#addU {
+  margin: 3px;
+  position: fixed;
+  left: 0%;
+  top: 0%;
+  font-size: 18px;
+}
+#numU {
+  margin: 3px;
+  position: fixed;
+  left: 0%;
+  top: 5%;
+  font-size: 18px;
+}
+#features {
+  margin: 3px;
+  position: fixed;
+  left: 0%;
+  top: 10%;
+  font-size: 18px;
+}
+div {
+  border: 1px solid black;
+  margin: 3px;
+}
+body {
+  background-color: #E1D8D8;
+}
+input {
+  margin: 10px;
+}
+label {
+  margin: 4px;
+}

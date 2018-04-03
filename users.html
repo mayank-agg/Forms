@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<body style="background-color: #E1D8D8;">
+<section>
+  <table id="table" border="solid 2px black">
+    <thead>
+      <tr>
+      <th>First Name </th>
+      <th> Last Name </th>
+      <th> Email Address </th>
+      <th> Birthday </th>
+    </tr>
+  </thead>
+  <tbody id= "tableBody">
+  </tbody>
+</table>
+<a style="position: fixed; top: 0%; left: 88%; font-size: 20px;" href= "./"> Create more Users </a>
+<a style="position: fixed; top: 5%; left: 88%; font-size: 20px;" href= "./data/users.json"> See JSON file </a>
+</section>
+</body>
+<script>
+  var tableBody= document.getElementById("tableBody");
+  var myJsonFile= './data/users.json';    //Go to data dir and then grab users.json.
+  var request = new XMLHttpRequest();
+  var userRow;
+  var fnameEntry;
+  var lnameEntry;
+  var birthdayEntry;
+  var emailEntry;
+  var usersData;
+
+  request.open('GET', myJsonFile);
+  request.responseType = 'json';
+  request.send();
+  request.onload = function() {
+  usersData = request.response;
+  var usersCount= usersData.length;
+  usersData.sort(function(a, b){
+    var nameA=a.firstName.toLowerCase(), nameB=b.firstName.toLowerCase()
+    if (nameA < nameB) //sort string ascending
+        return -1
+    if (nameA > nameB)
+        return 1
+    return 0 //default return value (no sorting)
+});
+  var emailAddressEntry= new Array();
+  for(var k=0; k<usersCount; k++)
+  {
+    userRow= document.createElement("tr");    //user rows
+    fnameEntry= document.createElement("th");   //user columns
+    fnameEntry.innerHTML= usersData[k].firstName;
+    lnameEntry= document.createElement("th");
+    lnameEntry.innerHTML= usersData[k].lastName;
+    var emailLength= usersData[k].email.length;
+    emailAddressEntry= document.createElement("th");
+    if(emailLength ==1)
+    {
+      emailAddressEntry.innerHTML= usersData[k].email;
+    }
+    else
+    {
+      for(var j=0; j<emailLength; j++)
+      {
+          emailAddressEntry.innerHTML+= "    "+usersData[k].email[j];
+      }
+    }
+    birthdayEntry= document.createElement("th");
+    birthdayEntry.innerHTML= usersData[k].birthday;
+    userRow.appendChild(fnameEntry);
+    userRow.appendChild(lnameEntry);
+    userRow.appendChild(emailAddressEntry);
+    userRow.appendChild(birthdayEntry);
+    tableBody.appendChild(userRow);
+  }
+}
+</script>
+</html>

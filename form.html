@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+<title>Welcome to Homepage </title>
+<link rel="stylesheet" href="./asn2Style.css">
+</head>
+<body>
+<form id="form" action= "cmpt218.csil.sfu.ca/maggarwa" method= "POST">
+  <div id= "ogDiv">
+<label for="firstName"> First Name: </label>
+<input type= "text" name="firstName1" id="firstName" oninput="changeCall(event)" class="firstNameClass">  <br>
+<label for="lastName"> Last Name: </label>
+<input type= "text" name="lastName1" id="lastName" oninput="changeCall(event)" class="lastNameClass" >  <br>
+<label for="Birthday"> Birthday </label>
+<input type= "date" name="birthday1" id="birthday" oninput="changeCall(event)" class= "birthdayClass"><br>
+<label for="email"> Email: </label>
+<input type= "email" name="email1" id="email" oninput="changeCall(event)" class= "emailClass">
+ <button id="addE" type="button" onclick="addEmailFunc()"> + </button>
+</div>
+<input id="submit"  type= "submit">
+<button id="resetBut" type="button" onclick="resetValues()"> Reset </button>
+
+</form>
+<a style="position: fixed; top: 0%; left: 88%; font-size: 20px;" href= "./users.html"> See users added </a>
+<a style="position: fixed; top: 5%; left: 88%; font-size: 20px;" href= "./data/users.json"> See JSON file </a>
+<button id="addU"> Add More </button> <br>
+<button id="numU" onclick="numUsers()"> Check Number of users </button>
+<button id= "features" onclick= "addFeatures()"> Features </button>
+</body>
+
+<script src="./asn2script.js"> </script>
